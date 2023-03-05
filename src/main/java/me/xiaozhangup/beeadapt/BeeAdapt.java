@@ -1,27 +1,19 @@
-package org.example;
+package me.xiaozhangup.beeadapt;
 
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.example.utils.command.Command;
-import org.example.utils.manager.ListenerManager;
+import me.xiaozhangup.beeadapt.utils.manager.ListenerManager;
 
-public class Main extends JavaPlugin {
+public class BeeAdapt extends JavaPlugin {
 
     public static Plugin plugin;
     public static ListenerManager listenerManager = new ListenerManager();
-    private static Economy econ = null;
-
-    public static Economy getEconomy() {
-        return econ;
-    }
 
     @Override
     public void onEnable() {
         plugin = this;
-        setupEconomy();
 
 //        listenerManager.addListeners(
 //                /*Your event*/
@@ -35,13 +27,6 @@ public class Main extends JavaPlugin {
 
 
 
-    }
-
-    private void setupEconomy() {
-        RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(Economy.class);
-        if (economyProvider != null) {
-            econ = economyProvider.getProvider();
-        }
     }
 
 }

@@ -1,4 +1,4 @@
-package org.example.utils.tools;
+package me.xiaozhangup.beeadapt.utils.tools;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

@@ -1,9 +1,9 @@
-package org.example.utils.items;
+package me.xiaozhangup.beeadapt.utils.items;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.example.utils.tools.IString;
+import me.xiaozhangup.beeadapt.utils.tools.IString;
 
 import java.util.ArrayList;
 import java.util.List;

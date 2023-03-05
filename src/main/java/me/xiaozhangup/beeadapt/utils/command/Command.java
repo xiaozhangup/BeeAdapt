@@ -1,4 +1,4 @@
-package org.example.utils.command;
+package me.xiaozhangup.beeadapt.utils.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;

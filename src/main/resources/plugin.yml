@@ -1,4 +1,4 @@
-name: PluginName
+name: BeeAdapt
 version: ${project.version}
 api-version: 1.16
-main: org.example.Main
+main: me.xiaozhangup.beeadapt.BeeAdapt
