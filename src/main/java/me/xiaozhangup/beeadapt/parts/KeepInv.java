@@ -10,7 +10,7 @@ import org.bukkit.plugin.Plugin;
 
 public class KeepInv implements Listener {
 
-    public KeepInv(Plugin plugin) {
+    public KeepInv() {
         BeeAdaptCore.getListenerManager().addListener(this);
         Bukkit.getWorlds().forEach(world -> {
             world.setGameRule(GameRule.KEEP_INVENTORY, true);

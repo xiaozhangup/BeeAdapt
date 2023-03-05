@@ -3,7 +3,6 @@ package me.xiaozhangup.beeadapt;
 import me.xiaozhangup.beeadapt.parts.KeepInv;
 import me.xiaozhangup.beeadapt.parts.KillDisplay;
 import org.bukkit.plugin.Plugin;
-import me.xiaozhangup.beeadapt.utils.manager.ListenerManager;
 
 public class BeeAdapt {
 
@@ -15,10 +14,10 @@ public class BeeAdapt {
         var config = plugin.getConfig();
 
         if (config.getBoolean("keepinv", true)) {
-            new KeepInv(plugin);
+            new KeepInv();
         }
         if (config.getBoolean("showkilled", false)) {
-            new KillDisplay(plugin);
+            new KillDisplay();
         }
     }
 

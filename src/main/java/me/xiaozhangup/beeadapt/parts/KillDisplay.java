@@ -9,6 +9,7 @@ import me.xiaozhangup.beeadapt.BeeAdaptCore;
 import me.xiaozhangup.beeadapt.utils.tools.IString;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,12 +20,14 @@ import org.bukkit.util.Vector;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Random;
 
 public class KillDisplay implements Listener {
 
     public static final Manager manager = Adyeshach.INSTANCE.api().getPublicEntityManager(ManagerType.TEMPORARY);
+    private static final Random RANDOM = new Random();
 
-    public KillDisplay(Plugin plugin) {
+    public KillDisplay() {
         BeeAdaptCore.getListenerManager().addListener(this);
     }
 
@@ -32,7 +35,7 @@ public class KillDisplay implements Listener {
     public void on(EntityDamageByEntityEvent e) {
         if (e.getDamager() instanceof Player player && e.getEntity() instanceof LivingEntity livingEntity) {
             Location location = e.getEntity().getLocation().clone();
-            AdyArmorStand text = (AdyArmorStand) manager.create(EntityTypes.ARMOR_STAND, location);
+            AdyArmorStand text = (AdyArmorStand) manager.create(EntityTypes.ARMOR_STAND, location.add(0, e.getEntity().getHeight() - 1.5, 0));
 
             Bukkit.getScheduler().runTaskLater(BeeAdaptCore.getPlugin(), text::remove, 15L);
 
@@ -44,7 +47,7 @@ public class KillDisplay implements Listener {
 
             BigDecimal bd = BigDecimal.valueOf(e.getFinalDamage());
             bd = bd.setScale(2, RoundingMode.FLOOR);
-            if (livingEntity.getHealth() < e.getFinalDamage()) {
+            if (livingEntity.getHealth() <= e.getFinalDamage()) {
                 text.setCustomName(IString.addColor("&x&c&6&d&0&f&5☠ " + bd));
             } else {
                 if (e.isCritical()) {
@@ -54,8 +57,7 @@ public class KillDisplay implements Listener {
                 }
             }
 
-            Vector vector = new Vector(0, 0.4, 0);
-            text.setVelocity(vector);
+            text.setVelocity(new Vector(0, 0.45, 0));
         }
     }
 
