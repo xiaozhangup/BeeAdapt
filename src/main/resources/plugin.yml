@@ -1,4 +1,0 @@
-name: BeeAdapt
-version: ${project.version}
-api-version: 1.16
-main: me.xiaozhangup.beeadapt.BeeAdapt

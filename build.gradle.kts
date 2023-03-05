@@ -14,13 +14,11 @@ taboolib {
     install("common-5")
     install("module-chat")
     install("module-configuration")
-    install("module-database")
     install("module-lang")
     install("module-nms")
     install("module-nms-util")
     install("module-ui")
     install("expansion-command-helper")
-    install("expansion-player-database")
     install("platform-bukkit")
 
     classifier = null
@@ -33,9 +31,9 @@ taboolib {
             name("xiaozhangup")
         }
 
-        dependencies {
-            name("Adyeshach")
-        }
+//        dependencies {
+//            name("Adyeshach")
+//        }
     }
 }
 

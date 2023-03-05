@@ -1,32 +1,25 @@
 package me.xiaozhangup.beeadapt;
 
-import net.milkbowl.vault.economy.Economy;
+import me.xiaozhangup.beeadapt.parts.KeepInv;
+import me.xiaozhangup.beeadapt.parts.KillDisplay;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.RegisteredServiceProvider;
-import org.bukkit.plugin.java.JavaPlugin;
 import me.xiaozhangup.beeadapt.utils.manager.ListenerManager;
 
-public class BeeAdapt extends JavaPlugin {
+public class BeeAdapt {
 
     public static Plugin plugin;
-    public static ListenerManager listenerManager = new ListenerManager();
 
-    @Override
-    public void onEnable() {
-        plugin = this;
+    public static void onEnable() {
+        plugin = BeeAdaptCore.getPlugin();
 
-//        listenerManager.addListeners(
-//                /*Your event*/
-//        );
-//        listenerManager.register();
+        var config = plugin.getConfig();
 
-//        Command.register("example", (commandSender, command, s, inside) -> {
-//            /*your way*/
-//            return false;
-//        });
-
-
-
+        if (config.getBoolean("keepinv", true)) {
+            new KeepInv(plugin);
+        }
+        if (config.getBoolean("showkilled", false)) {
+            new KillDisplay(plugin);
+        }
     }
 
 }
