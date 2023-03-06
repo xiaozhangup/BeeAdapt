@@ -1,5 +1,6 @@
 package me.xiaozhangup.beeadapt;
 
+import me.xiaozhangup.beeadapt.parts.CreeperBlack;
 import me.xiaozhangup.beeadapt.parts.KeepInv;
 import me.xiaozhangup.beeadapt.parts.KillDisplay;
 import org.bukkit.plugin.Plugin;
@@ -19,6 +20,8 @@ public class BeeAdapt {
         if (config.getBoolean("showkilled", false)) {
             new KillDisplay();
         }
+
+        new CreeperBlack(config.getStringList("creeperblock"));
     }
 
 }

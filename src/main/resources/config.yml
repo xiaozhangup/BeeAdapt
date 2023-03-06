@@ -1,2 +1,5 @@
 keepinv: true
 showkilled: false
+creeperblock:
+  - CHEST
+  - HOPPER

@@ -42,7 +42,7 @@ public class KillDisplay implements Listener {
             text.addViewer(player);
             text.setSmall(true);
             text.setInvisible(true);
-            text.setMarker(false);
+            text.setMarker(true);
             text.setCustomNameVisible(true);
 
             BigDecimal bd = BigDecimal.valueOf(e.getFinalDamage());
